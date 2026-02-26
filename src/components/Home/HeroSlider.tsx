@@ -27,7 +27,7 @@ const slides = [
 ];
 
 const AUTO_DELAY = 5000;
-const easeSmooth = [0.4, 0, 0.2, 1];
+const easeSmooth: [number, number, number, number] = [0.4, 0, 0.2, 1];
 
 export default function HeroSlider() {
   const [index, setIndex] = useState(0);
