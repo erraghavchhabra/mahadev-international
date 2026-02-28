@@ -1,8 +1,9 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Navbar from "@/components/Navbar";
-import { Instrument_Sans } from "next/font/google";
 import Footer from "@/components/Footer";
+import WowInit from "@/components/WowInit";
+import { Instrument_Sans } from "next/font/google";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -14,9 +15,12 @@ const instrumentSans = Instrument_Sans({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={`${instrumentSans.variable} font-sans`}>
+      {/* WOW JS INITIALIZER */}
+      <WowInit />
+
       <Navbar />
       <Component {...pageProps} />
-<Footer />
+      <Footer />
     </main>
   );
 }

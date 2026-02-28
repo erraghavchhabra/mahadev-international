@@ -14,6 +14,10 @@ type Blog = {
   href?: string;
 };
 
+type BlogsSectionProps = {
+  showViewAll?: boolean; // controls button visibility
+};
+
 const blogs: Blog[] = [
   {
     title: "Maximizing Oil Yield with Modern Extraction Technology",
@@ -22,7 +26,7 @@ const blogs: Blog[] = [
     category: "Technology",
     date: "12 Feb 2026",
     views: 245,
-    href: "/blog/oil-yield-technology",
+    href: "/blogs/oil-yield-technology",
   },
   {
     title: "Automation in Oil Mills: The Future of Smart Processing",
@@ -31,7 +35,7 @@ const blogs: Blog[] = [
     category: "Automation",
     date: "05 Feb 2026",
     views: 198,
-    href: "/blog/smart-processing",
+    href: "/blogs/smart-processing",
   },
   {
     title: "Choosing the Right Filtration System for Edible Oil",
@@ -40,20 +44,25 @@ const blogs: Blog[] = [
     category: "Refining",
     date: "28 Jan 2026",
     views: 312,
-    href: "/blog/filtration-system",
+    href: "/blogs/filtration-system",
   },
 ];
 
-export default function BlogsSection() {
+export default function BlogsSection({ showViewAll = false }: BlogsSectionProps) {
   return (
-    <section className="w-full bg-gray-50 py-16 lg:py-24">
+    <section className="w-full bg-gray-50 py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
+
         {/* Heading */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl text-center md:text-4xl font-semibold text-gray-900">
-           Industry Insights & Blogs
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
+            Industry Insights & Blogs
           </h2>
-          <p className="lg:w-[60%] ml-auto mr-auto mt-4 text-xl">Stay ahead with expert insights, technical guides, and the latest developments in oil extraction technology</p>
+
+          <p className="lg:w-[60%] mx-auto mt-4 text-xl text-gray-600">
+            Stay ahead with expert insights, technical guides, and the latest
+            developments in oil extraction technology
+          </p>
         </div>
 
         {/* Blog Grid */}
@@ -61,7 +70,7 @@ export default function BlogsSection() {
           {blogs.map((blog, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300"
+              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
             >
               {/* Image */}
               <Link href={blog.href ?? "#"} className="block relative overflow-hidden">
@@ -70,7 +79,7 @@ export default function BlogsSection() {
                     src={blog.image}
                     alt={blog.title}
                     fill
-                    className="object-cover transition-transform duration-700 hover:scale-110"
+                    className="object-cover transition-transform duration-[1600ms] hover:scale-110"
                   />
                 </div>
 
@@ -82,9 +91,10 @@ export default function BlogsSection() {
 
               {/* Content */}
               <div className="p-6">
-                <p className="text-sm text-gray-500 items-center flex gap-1"><Clock size={16} /> <span>{blog.date}</span></p>
+                <p className="text-sm text-gray-500 flex items-center gap-1">
+                  <Clock size={16} /> {blog.date}
+                </p>
 
-                {/* Title */}
                 <Link
                   href={blog.href ?? "#"}
                   className="block mt-2 text-lg font-semibold text-gray-900 hover:text-[#114a9f] transition"
@@ -92,23 +102,18 @@ export default function BlogsSection() {
                   {blog.title}
                 </Link>
 
-                {/* Description (word limited via CSS line clamp) */}
                 <p className="mt-3 text-gray-600 text-sm leading-relaxed line-clamp-3">
                   {blog.desc}
                 </p>
 
-                {/* Bottom Row */}
                 <div className="flex items-center justify-between mt-5">
-                  {/* Read More */}
                   <Link
                     href={blog.href ?? "#"}
                     className="inline-flex items-center gap-1 text-[#114a9f] font-medium hover:gap-2 transition-all"
                   >
-                    Read More
-                    <ArrowRight size={16} />
+                    Read More <ArrowRight size={16} />
                   </Link>
 
-                  {/* Views */}
                   <div className="flex items-center gap-1 text-gray-500 text-sm">
                     <Eye size={16} />
                     {blog.views}
@@ -119,23 +124,25 @@ export default function BlogsSection() {
           ))}
         </div>
 
-        {/* View All Button */}
-        <div className="mt-12 text-center">
-          <Link
-            href="/blogs"
-            className="group inline-flex items-center gap-2
-            bg-gradient-to-r from-[#114a9f] to-blue-500
-            text-white px-5 py-3 rounded-xl font-medium shadow
-            hover:opacity-90 transition"
-          >
-            View All Blogs
+        {/* View All Button (ONLY when enabled) */}
+        {showViewAll && (
+          <div className="mt-14 text-center">
+            <Link
+              href="/blogs"
+              className="group inline-flex items-center gap-2
+              bg-gradient-to-r from-cyan-600 to-blue-600
+              text-white px-6 py-3 rounded-xl font-medium shadow-lg
+              hover:shadow-xl transition-all duration-300"
+            >
+              View All Blogs
+              <ArrowRight
+                size={18}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </Link>
+          </div>
+        )}
 
-            <ArrowRight
-              size={18}
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            />
-          </Link>
-        </div>
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ export default function Home() {
       <ProductsSection />
       <SolutionsSection />
       <AlternatingSolutions />
-      <BlogsSection />
+      <BlogsSection showViewAll />
     </>
   );
 }

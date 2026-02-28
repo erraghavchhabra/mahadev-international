@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "animate.css";
 body {
   font-family: "Instrument Sans", sans-serif;
 }
@@ -7,6 +8,10 @@ body {
   --font-instrument: "Instrument Sans", sans-serif;
 
   --font-sans: var(--font-instrument);
+}
+.ms-nav.sticky.shadow-lg img{
+width: 80px; 
+transition: all 0.35s ease;
 }
 .hero-wrapper {
   position: relative;
@@ -39,4 +44,63 @@ body {
 }
 .ms-product-title{
   letter-spacing: 1px;
+}
+/* Static base ring */
+.stroke-base {
+  fill: none;
+  stroke: #222;
+  stroke-width: 1.4;
+  opacity: 0.7;
+}
+
+/* Animated ring */
+.stroke-animate {
+  fill: none;
+  stroke-width: 1.6;
+
+  stroke-dasharray: 126;
+  stroke-dashoffset: 126;
+
+  transition: stroke-dashoffset 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Draw effect */
+.group:hover .stroke-animate {
+  stroke-dashoffset: 0;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.35s ease forwards;
+}
+.cont-sec::after {
+  background-color: hsl(var(--base) / 0.4);
+  top: 24%;
+  right: 5%;
+}
+.cont-sec::before, .cont-sec::after {
+  content: "";
+  position: absolute;
+  width: 11.75rem;
+  height: 11.75rem;
+  border-radius: 50%;
+  -webkit-filter: blur(73.85px);
+  filter: blur(73.85px);
+  background-color: #304bfc54;
+  -webkit-backdrop-filter: blur(-73.85px);
+  backdrop-filter: blur(-73.85px);
+  z-index: 0;
+}
+.cont-sec::before {
+  top: 5%;
+  left: -0.6875rem;
 }

@@ -61,7 +61,7 @@ export default function HeroSlider() {
   }, [index, progress]);
 
   return (
-    <section className="relative hero-wrapper lg:mt-20 w-full h-[95vh] md:h-[90vh] overflow-hidden">
+    <section className="relative hero-wrapper  w-full h-[95vh] md:h-[90vh] overflow-hidden">
       {/* Progress Bar */}
       <motion.div
         className="absolute bottom-0 left-0 h-[3px] bg-[#114a9f] z-30"
@@ -123,7 +123,7 @@ export default function HeroSlider() {
               {slides[index].desc}
             </p>
 
-            <button className="bg-gradient-to-r from-[#114a9f] lg:mt-16 to-blue-500 text-white px-5 py-3 rounded-xl font-medium shadow hover:opacity-90 transition">
+            <button className="bg-gradient-to-r from-cyan-600 to-blue-600 lg:mt-16 to-blue-500 text-white px-5 py-3 rounded-xl font-medium shadow hover:opacity-90 transition">
               {slides[index].btn}
             </button>
           </div>
