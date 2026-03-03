@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowLeft, ArrowRight, X, Maximize2 } from "lucide-react";
 
 interface MediaItem {
-  type: "image" | "video";
+  type: string;
   src: string;
 }
 
