@@ -9,9 +9,9 @@ body {
 
   --font-sans: var(--font-instrument);
 }
-.ms-nav.sticky.shadow-lg img{
-width: 80px; 
-transition: all 0.35s ease;
+.ms-nav.sticky.shadow-lg img {
+  width: 80px;
+  transition: all 0.35s ease;
 }
 .hero-wrapper {
   position: relative;
@@ -22,27 +22,26 @@ transition: all 0.35s ease;
   height: 100vh;
   margin-top: 150px;
 }
-.hero-wrapper button{
+.hero-wrapper button {
   cursor: pointer;
 }
-.hero-wrapper p{
-  width: 70%
+.hero-wrapper p {
+  width: 70%;
 }
-.hero-wrapper .slide-title{
+.hero-wrapper .slide-title {
   position: relative;
   margin-bottom: 40px;
 }
-.hero-wrapper .slide-title:after{
-  content: '';
+.hero-wrapper .slide-title:after {
+  content: "";
   position: absolute;
   left: 0;
   bottom: -10px;
   height: 4px;
   width: 100px;
   background-color: rgb(0, 107, 247);
-
 }
-.ms-product-title{
+.ms-product-title {
   letter-spacing: 1px;
 }
 /* Static base ring */
@@ -87,7 +86,8 @@ transition: all 0.35s ease;
   top: 24%;
   right: 5%;
 }
-.cont-sec::before, .cont-sec::after {
+.cont-sec::before,
+.cont-sec::after {
   content: "";
   position: absolute;
   width: 11.75rem;
@@ -103,4 +103,54 @@ transition: all 0.35s ease;
 .cont-sec::before {
   top: 5%;
   left: -0.6875rem;
+}
+.ms-footer {
+  background-color: #0e1a2b;
+  background-size: cover;
+  background-image: url('/img/footer-bg.png');
+  background-repeat: repeat;
+}
+.product-section-bg {
+      background: #f4faff;
+  background-image:
+    radial-gradient(
+      ellipse 80% 50% at 50% 0%,
+      rgba(59, 113, 202, 0.06),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 80% 80%,
+      rgba(45, 160, 140, 0.04),
+      transparent
+    ),
+    radial-gradient(
+      circle at 20% 60%,
+      rgba(59, 113, 202, 0.03),
+      transparent 50%
+    ),
+    /* Dot pattern */
+    radial-gradient(
+      circle,
+      rgba(180, 195, 220, 0.5) 1px,
+      transparent 1px
+    );
+  background-size: 100% 100%, 100% 100%, 100% 100%, 24px 24px;
+  position: relative;
+}
+
+.product-section-bg::before {
+    content: "";
+    pointer-events: none;
+    background: linear-gradient(135deg, #3b71ca0d 25%, #0000 25% 50%, #3b71ca0d 50% 75%, #0000 75%) 0 0 / 60px 60px;
+    position: absolute;
+    inset: 0;
+    -webkit-mask-image: radial-gradient(70% 70%, #000 30%, #0000 80%);
+    mask-image: radial-gradient(70% 70%, #000 30%, #0000 80%);
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

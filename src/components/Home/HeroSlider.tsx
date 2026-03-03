@@ -72,19 +72,19 @@ export default function HeroSlider() {
       <div className="absolute inset-0">
         {slides.map((slide, i) => (
           <motion.div
-            key={i}
-            className="absolute inset-0"
-            initial={false}
-            animate={{
-              opacity: i === index ? 1 : 0,
-              scale: i === index ? 1 : 1.08,
-              zIndex: i === index ? 2 : 1,
-            }}
-            transition={{
-              opacity: { duration: 0.9, ease: easeSmooth },
-              scale: { duration: 6, ease: "linear" },
-            }}
-          >
+  key={i}
+  className="absolute inset-0"
+  initial={{ scale: 1.05, opacity: 0 }}
+  animate={{
+    opacity: i === index ? 1 : 0,
+    scale: i === index ? 1.12 : 1.05,
+    zIndex: i === index ? 2 : 1,
+  }}
+  transition={{
+    opacity: { duration: 0.9, ease: easeSmooth },
+    scale: { duration: 6, ease: "easeOut" },
+  }}
+>
             <Image
               src={slide.image}
               alt=""

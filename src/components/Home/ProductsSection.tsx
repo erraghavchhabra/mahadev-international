@@ -33,25 +33,13 @@ const products = [
 
 export default function ProductsSection() {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 relative product-section-bg">
       <div className="max-w-7xl mx-auto px-4">
-
         {/* Heading */}
-        <div className="flex items-center justify-between mb-10 wow animate__animated animate__fadeInUp">
-          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
-            Products
+        <div className="text-center justify-between mb-10 wow animate__animated animate__fadeInUp">
+          <h2 className="text-3xl md:text-4xl lg:mb-16 font-semibold text-gray-900">
+            Our Products
           </h2>
-
-          <Link
-            href="/products"
-            className="group inline-flex items-center gap-2 
-            bg-gradient-to-r from-cyan-600 to-blue-600 
-            text-white px-5 py-3 rounded-xl font-medium shadow 
-            hover:opacity-90 transition"
-          >
-            Explore All
-            <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" size={18} />
-          </Link>
         </div>
 
         {/* Grid */}
@@ -64,26 +52,26 @@ export default function ProductsSection() {
               data-wow-delay={`${index * 0.15}s`}
             >
               {/* Image */}
-              <div className="overflow-hidden">
+              <div className="h-[200px] flex items-center justify-center overflow-hidden">
                 <Image
                   src={product.image}
                   alt={product.name}
-                  width={400}
-                  height={300}
-                  className="w-full object-contain transition-transform duration-700 ease-out group-hover:scale-105"
+                  width={180}
+                  height={180}
+                  className="object-contain transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
 
               {/* Title */}
-              <div className="mt-5 flex flex-col items-center gap-3">
+              <div className="mt-3 flex flex-col items-center gap-3">
                 <h3 className="text-lg font-medium text-gray-900 text-center tracking-wide">
                   {product.name}
                 </h3>
 
                 {/* Animated Arrow Circle */}
-                <div className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 group-hover:border-blue-600 transition-all duration-500">
+                <div className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 group-hover:border-blue-600 transition-all duration-500">
                   <ArrowRight
-                    size={18}
+                    size={14}
                     className="text-gray-700 transition-all duration-500 group-hover:text-blue-600 group-hover:translate-x-[3px]"
                   />
                 </div>
@@ -91,7 +79,21 @@ export default function ProductsSection() {
             </Link>
           ))}
         </div>
-
+        <div className="text-center lg:mt-14 mt-10">
+          <Link
+            href="/products"
+            className="group inline-flex items-center gap-2 
+            bg-gradient-to-r from-cyan-600 to-blue-600 
+            text-white px-5 py-3 rounded-xl font-medium shadow 
+            hover:opacity-90 transition"
+          >
+            Explore All Products
+            <ArrowRight
+              className="transition-transform duration-300 group-hover:translate-x-1"
+              size={18}
+            />
+          </Link>
+        </div>
       </div>
     </section>
   );

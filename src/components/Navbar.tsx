@@ -7,34 +7,46 @@ import Image from "next/image";
 const menuData = [
   {
     title: "Products",
-    items: ["Product One", "Product Two", "Product Three", "Product Four"],
+    items: [
+      { label: "Oil Expellers", href: "/products/oil-expellers" },
+      { label: "Oilseed Cookers", href: "/products/oilseed-cookers" },
+      { label: "Filter Press", href: "/products/filter-press" },
+      { label: "Material Handling", href: "/products/material-handling" },
+    ],
   },
   {
     title: "Technology & Solutions",
     items: [
-      "Turnkey Oil Mill",
-      "Automation Systems",
-      "Solvent Extraction Plant",
-      "Mini Oil Mill",
-      "Seed Cleaning & Sortex Plant",
+      { label: "Turnkey Oil Mill", href: "#" },
+      { label: "Automation Systems", href: "#" },
+      { label: "Solvent Extraction Plant", href: "#" },
+      { label: "Mini Oil Mill", href: "#" },
+      { label: "Seed Cleaning & Sortex Plant", href: "#" },
     ],
   },
-
   {
     title: "News & Media",
-    items: ["Latest News", "Press Release", "Events", "Blogs"],
+    items: [
+      { label: "Latest News", href: "#" },
+      { label: "Press Release", href: "#" },
+      { label: "Events", href: "#" },
+      { label: "Blogs", href: "#" },
+    ],
   },
   {
     title: "Service & Support",
-    items: ["Customer Support", "Documentation", "Training", "Contact Support"],
+    items: [
+      { label: "Customer Support", href: "#" },
+      { label: "Documentation", href: "#" },
+      { label: "Training", href: "#" },
+      { label: "Contact Support", href: "#" },
+    ],
   },
 
-  // ✅ ONLY THIS ONE UPDATED
+  // About Us is now a direct link (NO dropdown)
   {
     title: "About Us",
-    items: [
-      { label: "Company Profile", href: "/company-profile" },
-    ],
+    href: "/about-us",
   },
 ];
 
@@ -44,9 +56,7 @@ export default function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsSticky(window.scrollY > 60);
-    };
+    const handleScroll = () => setIsSticky(window.scrollY > 60);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -74,7 +84,7 @@ export default function Navbar() {
 
       {/* MAIN NAVBAR */}
       <header
-        className={`w-full ms-nav sticky top-0 z-50 bg-white transition-all duration-300 ${
+        className={`w-full sticky top-0 z-50 bg-white transition-all duration-300 ${
           isSticky ? "shadow-lg py-2" : "py-2"
         }`}
       >
@@ -88,31 +98,43 @@ export default function Navbar() {
           <nav className="hidden lg:flex items-center gap-8">
             {menuData.map((menu, index) => (
               <div key={index} className="relative group">
-                <button className="flex items-center gap-1 text-gray-700 font-medium hover:text-[#114a9f] transition">
-                  {menu.title}
-                  <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
-                </button>
+                {/* Direct Link (About Us) */}
+                {!menu.items ? (
+                  <Link
+                    href={menu.href!}
+                    className="text-gray-700 font-medium hover:text-[#114a9f] transition"
+                  >
+                    {menu.title}
+                  </Link>
+                ) : (
+                  <>
+                    {/* Dropdown Button */}
+                    <button className="flex items-center gap-1 text-gray-700 font-medium hover:text-[#114a9f] transition">
+                      {menu.title}
+                      <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
+                    </button>
 
-                <div className="absolute left-0 top-full opacity-0 invisible group-hover:visible group-hover:opacity-100 translate-y-6 group-hover:translate-y-0 transition-all duration-300 bg-white shadow-xl rounded-lg min-w-[240px]">
-                  <ul className="py-4">
-
-                    {/* DESKTOP DROPDOWN ITEMS */}
-                    {menu.items.map((item: any, i) => (
-                      <li key={i}>
-                        <Link
-                          href={typeof item === "string" ? "#" : item.href}
-                          className="block px-6 py-2 text-gray-600 hover:text-[#114a9f] hover:bg-blue-50 transition"
-                        >
-                          {typeof item === "string" ? item : item.label}
-                        </Link>
-                      </li>
-                    ))}
-
-                  </ul>
-                </div>
+                    {/* Dropdown */}
+                    <div className="absolute left-0 top-full opacity-0 invisible group-hover:visible group-hover:opacity-100 translate-y-6 group-hover:translate-y-0 transition-all duration-300 bg-white shadow-xl rounded-lg min-w-[240px]">
+                      <ul className="py-4">
+                        {menu.items.map((item, i) => (
+                          <li key={i}>
+                            <Link
+                              href={item.href}
+                              className="block px-6 py-2 text-gray-600 hover:text-[#114a9f] hover:bg-blue-50 transition"
+                            >
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </>
+                )}
               </div>
             ))}
 
+            {/* CTA */}
             <Link
               href="/contact"
               className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-5 py-3 rounded-xl font-medium shadow hover:opacity-90 transition"
@@ -133,40 +155,42 @@ export default function Navbar() {
             <ul className="flex flex-col">
               {menuData.map((menu, index) => (
                 <li key={index} className="border-b">
-                  <button
-                    onClick={() => toggleDropdown(index)}
-                    className="w-full flex justify-between items-center py-4 text-gray-700 font-medium"
-                  >
-                    {menu.title}
-                    <ChevronDown
-                      size={16}
-                      className={`transition-transform ${
-                        activeMobileDropdown === index ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
+                  {!menu.items ? (
+                    <Link href={menu.href!} className="block py-4 text-gray-700 font-medium">
+                      {menu.title}
+                    </Link>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => toggleDropdown(index)}
+                        className="w-full flex justify-between items-center py-4 text-gray-700 font-medium"
+                      >
+                        {menu.title}
+                        <ChevronDown
+                          size={16}
+                          className={`transition-transform ${
+                            activeMobileDropdown === index ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
 
-                  <div
-                    className={`overflow-hidden transition-all ${
-                      activeMobileDropdown === index ? "max-h-96" : "max-h-0"
-                    }`}
-                  >
-                    <ul className="pb-4">
-
-                      {/* MOBILE DROPDOWN ITEMS */}
-                      {menu.items.map((item: any, i) => (
-                        <li key={i}>
-                          <Link
-                            href={typeof item === "string" ? "#" : item.href}
-                            className="block pl-4 py-2 text-gray-600"
-                          >
-                            {typeof item === "string" ? item : item.label}
-                          </Link>
-                        </li>
-                      ))}
-
-                    </ul>
-                  </div>
+                      <div
+                        className={`overflow-hidden transition-all ${
+                          activeMobileDropdown === index ? "max-h-96" : "max-h-0"
+                        }`}
+                      >
+                        <ul className="pb-4">
+                          {menu.items.map((item, i) => (
+                            <li key={i}>
+                              <Link href={item.href} className="block pl-4 py-2 text-gray-600">
+                                {item.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </>
+                  )}
                 </li>
               ))}
             </ul>
