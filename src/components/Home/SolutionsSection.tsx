@@ -1,81 +1,85 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function SolutionsSection() {
   return (
-    <section className="w-full bg-slate-100 overflow-hidden">
-      <div className="grid lg:grid-cols-2 grid-cols-1 items-center">
+    <section className="relative w-full min-h-[600px] overflow-hidden">
 
-        {/* LEFT CONTENT */}
-        <div className="px-6 md:px-12 lg:px-20 py-14 lg:py-24">
-          <div className="max-w-xl">
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/videos/solution-bg.mp4" type="video/mp4" />
+      </video>
 
-            <h2
-              className="text-3xl md:text-4xl font-semibold text-gray-900 wow animate__animated animate__fadeInUp"
-              data-wow-delay="0.2s"
-            >
-              Technology & Solutions
-            </h2>
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/40"></div>
 
-            <p
-              className="text-[#114a9f] italic font-medium mt-3 text-lg wow animate__animated animate__fadeInUp"
-              data-wow-delay="0.4s"
-            >
-              Driving efficiency and innovation in every drop of oil.
-            </p>
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-2 lg:px-2 py-20 flex justify-start items-center min-h-[600px]">
 
-            <p
-              className="text-gray-600 mt-6 leading-relaxed wow animate__animated animate__fadeInUp"
-              data-wow-delay="0.6s"
-            >
-              Our advanced oil extraction technologies deliver superior
-              performance, efficiency, and reliability for various applications.
-            </p>
+        {/* Glass Text Box */}
+        <div className="max-w-xl backdrop-blur-lg bg-white/20 border border-white/20 rounded-2xl p-8 md:p-10 shadow-xl">
 
-            <p
-              className="text-gray-600 mt-6 leading-relaxed wow animate__animated animate__fadeInUp"
-              data-wow-delay="0.8s"
-            >
-              Mahadev offers advanced oil extraction solutions featuring
-              advanced screw presses, filter presses, and modular RBD refining
-              systems. Designed for multi-seed processing, continuous operation,
-              and intelligent automation, our equipment ensures high oil yield
-              and operational efficiency.
-            </p>
+          <h2
+            className="text-3xl md:text-4xl font-semibold text-white wow animate__animated animate__fadeInUp"
+            data-wow-delay="0.2s"
+          >
+            Technology & Solutions
+          </h2>
 
-            <Link
-              href="/products"
-              className="group mt-8 inline-flex items-center gap-2 
-              bg-gradient-to-r from-cyan-600 to-blue-600
-              text-white px-6 py-3 rounded-xl font-medium shadow-lg
-              hover:shadow-xl transition-all duration-300
-              wow animate__animated animate__fadeInUp"
-              data-wow-delay="1s"
-            >
-              Technology & Solutions
-              <ArrowRight
-                className="transition-transform duration-300 group-hover:translate-x-1"
-                size={18}
-              />
-            </Link>
-          </div>
-        </div>
+          <p
+            className="text-cyan-200 italic font-medium mt-3 text-lg wow animate__animated animate__fadeInUp"
+            data-wow-delay="0.4s"
+          >
+            Driving efficiency and innovation in every drop of oil.
+          </p>
 
-        {/* RIGHT IMAGE */}
-        <div className="relative h-[320px] md:h-[420px] lg:h-[620px] w-full overflow-hidden wow animate__animated animate__fadeInRight">
-          <Image
-            src="/img/solutions2.jpg"
-            alt="Technology and Solutions"
-            fill
-            className="object-cover scale-105 hover:scale-100 transition-transform duration-[2000ms]"
-            priority
-          />
+          <p
+            className="text-gray-200 mt-6 leading-relaxed wow animate__animated animate__fadeInUp"
+            data-wow-delay="0.6s"
+          >
+            Our advanced oil extraction technologies deliver superior
+            performance, efficiency, and reliability for various applications.
+          </p>
+
+          <p
+            className="text-gray-200 mt-6 leading-relaxed wow animate__animated animate__fadeInUp"
+            data-wow-delay="0.8s"
+          >
+            Mahadev offers advanced oil extraction solutions featuring
+            advanced screw presses, filter presses, and modular RBD refining
+            systems. Designed for multi-seed processing, continuous operation,
+            and intelligent automation, our equipment ensures high oil yield
+            and operational efficiency.
+          </p>
+
+          <Link
+            href="/products"
+            className="group mt-8 inline-flex items-center gap-2 
+            bg-gradient-to-r from-cyan-700 to-cyan-900
+            text-white px-6 py-3 rounded-xl font-medium shadow-lg
+            hover:shadow-xl transition-all duration-300
+            wow animate__animated animate__fadeInUp"
+            data-wow-delay="1s"
+          >
+            Technology & Solutions
+            <ArrowRight
+              className="transition-transform duration-300 group-hover:translate-x-1"
+              size={18}
+            />
+          </Link>
+
         </div>
 
       </div>
+
     </section>
   );
 }

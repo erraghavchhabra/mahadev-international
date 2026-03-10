@@ -199,22 +199,22 @@ export default function ContactPage() {
                   <div className="text-sm text-gray-600">Happy Clients</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-600">24/7</div>
-                  <div className="text-sm text-gray-600">Support</div>
+                  <div className="text-2xl font-bold text-purple-600">500+</div>
+                  <div className="text-sm text-gray-600">Machines Installed  </div>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="#contact-form"
-                  className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all font-medium inline-flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  className="bg-gradient-to-r from-cyan-700 to-cyan-900 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all font-medium inline-flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
                   <Send className="w-5 h-5 mr-2" />
                   Send Message
                 </a>
                 <a
                   href="tel:+919815593465"
-                  className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition-all font-medium inline-flex items-center justify-center"
+                  className="border-2 border-cyan-600 text-cyan-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition-all font-medium inline-flex items-center justify-center"
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   Call Now
@@ -578,7 +578,7 @@ export default function ContactPage() {
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 disabled:bg-blue-400 transition-all font-medium flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none"
+                          className="bg-gradient-to-r from-cyan-700 to-cyan-900 text-white px-8 py-3 rounded-lg hover:bg-blue-700 disabled:bg-blue-400 transition-all font-medium flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none"
                         >
                           {isSubmitting ? (
                             <>

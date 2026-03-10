@@ -42,9 +42,9 @@ const RelatedProducts: React.FC = () => {
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+              className="bg-slate-50 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
             >
-              <div className="h-48 w-full bg-blue-50 overflow-hidden">
+              <div className="h-48 w-full bg-white overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.name}

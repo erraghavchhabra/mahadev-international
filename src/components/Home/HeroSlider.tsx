@@ -115,6 +115,7 @@ export default function HeroSlider() {
       >
         <div className="max-w-7xl mx-auto px-6 w-full">
           <div className="max-w-2xl">
+            <div className="bg-black/20 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
             <h1 className="text-white slide-title text-6xl md:text-6xl font-semibold leading-tight">
               {slides[index].title}
             </h1>
@@ -123,9 +124,10 @@ export default function HeroSlider() {
               {slides[index].desc}
             </p>
 
-            <button className="bg-gradient-to-r from-cyan-600 to-blue-600 lg:mt-16 to-blue-500 text-white px-5 py-3 rounded-xl font-medium shadow hover:opacity-90 transition">
+            <button className="bg-gradient-to-r from-cyan-700 to-cyan-900 lg:mt-16 to-blue-500 text-white px-5 py-3 rounded-xl font-medium shadow hover:opacity-90 transition">
               {slides[index].btn}
             </button>
+            </div>
           </div>
         </div>
       </motion.div>
@@ -154,7 +156,7 @@ export default function HeroSlider() {
             key={i}
             onClick={() => setIndex(i)}
             className={`h-[3px] transition-all duration-300 ${
-              i === index ? "w-12 bg-[#114a9f]" : "w-6 bg-white/60"
+              i === index ? "w-12 bg-cyan-600" : "w-6 bg-white/60"
             }`}
           />
         ))}

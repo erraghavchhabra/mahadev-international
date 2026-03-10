@@ -8,7 +8,7 @@ import SplitSection from "@/components/SplitSection";
 import DetailAlternate from "@/components/DetailAlternate";
 import RequestInfoDark from "@/components/RequestInfoDark";
 import VideoGallery from "@/components/VideoGallery";
-import CaseStudies from "@/components/CaseStudies";
+import CaseStudies from "@/components/CaseStudiesSection";
 import RelatedProducts from "@/components/RelatedProducts";
 /* ---------------- MOCK DATA ---------------- */
 const product = {
@@ -178,8 +178,8 @@ export default function ProductDetailPage() {
         </div>
       </section>
       <DetailAlternate />
-      <RelatedProducts />
       <RequestInfoDark  />
+      <RelatedProducts />
       <VideoGallery />
       <CaseStudies />
     </div>

@@ -130,7 +130,7 @@ export default function BlogsSection({ showViewAll = false }: BlogsSectionProps)
             <Link
               href="/blogs"
               className="group inline-flex items-center gap-2
-              bg-gradient-to-r from-cyan-600 to-blue-600
+              bg-gradient-to-r from-cyan-700 to-cyan-900
               text-white px-6 py-3 rounded-xl font-medium shadow-lg
               hover:shadow-xl transition-all duration-300"
             >

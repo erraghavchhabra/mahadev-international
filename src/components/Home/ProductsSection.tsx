@@ -69,10 +69,10 @@ export default function ProductsSection() {
                 </h3>
 
                 {/* Animated Arrow Circle */}
-                <div className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 group-hover:border-blue-600 transition-all duration-500">
+                <div className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 group-hover:border-cyan-700 transition-all duration-500">
                   <ArrowRight
                     size={14}
-                    className="text-gray-700 transition-all duration-500 group-hover:text-blue-600 group-hover:translate-x-[3px]"
+                    className="text-gray-700 transition-all duration-500 group-hover:text-cyan-700 group-hover:translate-x-[3px]"
                   />
                 </div>
               </div>
@@ -83,7 +83,7 @@ export default function ProductsSection() {
           <Link
             href="/products"
             className="group inline-flex items-center gap-2 
-            bg-gradient-to-r from-cyan-600 to-blue-600 
+            bg-gradient-to-r from-cyan-700 to-cyan-900 
             text-white px-5 py-3 rounded-xl font-medium shadow 
             hover:opacity-90 transition"
           >

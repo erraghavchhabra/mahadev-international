@@ -14,10 +14,6 @@ const videos: VideoItem[] = [
     title: "Cake Extraction",
     src: "/videos/gc.mp4",
   },
-  {
-    title: "Oil Extraction",
-    src: "/videos/vc.mp4",
-  },
 ];
 
 export default function VideoGallery() {
@@ -30,11 +26,11 @@ export default function VideoGallery() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
             Product Videos
           </h2>
-          <div className="w-16 h-1 bg-blue-600 mx-auto mt-4"></div>
+          <div className="w-16 h-1 bg-cyan-700 mx-auto mt-4"></div>
         </div>
 
         {/* Videos Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
 
           {videos.map((video, index) => (
             <div
